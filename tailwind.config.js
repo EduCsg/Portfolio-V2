@@ -22,9 +22,23 @@ export default {
 
     animation: {
       wheel: "wheel 2.5s ease-in-out infinite",
+
+      blink: "blink 1s ease-in-out infinite",
     },
 
     keyframes: {
+      blink: {
+        "0%": {
+          "border-right": "5px solid primary",
+        },
+        "50%": {
+          "border-right": "5px solid transparent",
+        },
+        "100%": {
+          "border-right": "5px solid primary",
+        },
+      },
+
       wheel: {
         "0%": {
           opacity: "1",
@@ -63,5 +77,6 @@ export default {
       "3xl": "1919px",
     },
   },
+
   plugins: [require("prettier-plugin-tailwindcss")],
 };

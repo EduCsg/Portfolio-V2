@@ -7,7 +7,7 @@ type Props = {
   externalLink?: boolean;
   radius?: boolean;
 
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 const ActionButton = ({
