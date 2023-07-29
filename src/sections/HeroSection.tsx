@@ -34,12 +34,12 @@ const HeroSection = () => {
   });
 
   return (
-    <section className="bg-backgroundPrimary">
+    <section className="bg-backgroundPrimary" id="home">
       <main className="relative mx-4 flex items-center lg:mx-20 xxl:mx-44 3xl:mx-64">
         <div className="flex w-screen justify-center sm:justify-center lg:justify-start">
           <div className="flex h-screen flex-col justify-center">
             <div className="flex flex-col items-start gap-8">
-              <h1 className="z-50 max-w-[90vw] text-4xl font-bold text-white xs:text-5xl lg:text-7xl ">
+              <h1 className="z-20 max-w-[90vw] text-4xl font-bold text-white xs:text-5xl lg:text-7xl ">
                 Eduardo Casagrande
               </h1>
               <h2 className="text-2xl font-bold text-primary xs:text-3xl lg:text-5xl">
@@ -47,7 +47,7 @@ const HeroSection = () => {
               </h2>
             </div>
 
-            <div className="z-50 mt-14 flex basis-10 flex-col gap-6 sm:flex-row">
+            <div className="z-20 mt-14 flex basis-10 flex-col gap-6 sm:flex-row">
               <ActionButton
                 text="Ver mais"
                 icon={arrow_forward}
