@@ -49,6 +49,7 @@ const HeroSection = () => {
 
             <div className="z-20 mt-14 flex basis-10 flex-col gap-6 sm:flex-row">
               <ActionButton
+                rotate
                 text="Ver mais"
                 icon={arrow_forward}
                 color="primary"

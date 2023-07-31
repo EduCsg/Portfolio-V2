@@ -6,6 +6,7 @@ type Props = {
 
   externalLink?: boolean;
   radius?: boolean;
+  rotate?: boolean;
 
   onClick?: () => void;
 };
@@ -17,6 +18,7 @@ const ActionButton = ({
   radius,
   link,
   externalLink,
+  rotate,
   onClick,
 }: Props) => {
   interface colors {
@@ -42,7 +44,7 @@ const ActionButton = ({
       >
         <span className="text-white">{text}</span>
 
-        {icon.includes("arrow_forward") ? (
+        {rotate ? (
           <img
             src={icon}
             className="transition-all duration-[350ms] group-hover:rotate-90"
