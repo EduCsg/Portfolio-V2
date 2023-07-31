@@ -30,6 +30,8 @@ const ActionButton = ({
   const colors: colors = {
     primary: "bg-primary",
     secondary: "bg-secondary",
+    black: "bg-black",
+    white: "bg-white",
   };
 
   return (

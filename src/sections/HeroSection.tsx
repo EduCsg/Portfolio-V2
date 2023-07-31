@@ -60,7 +60,7 @@ const HeroSection = () => {
                 text="Github"
                 icon={github_logo}
                 externalLink
-                color="secondary"
+                color="black"
                 link="https://github.com/eduCsg"
               />
             </div>

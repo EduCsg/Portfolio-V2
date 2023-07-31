@@ -14,9 +14,9 @@ const AboutMe = () => {
   return (
     <section
       id="about"
-      className="relative w-full bg-backgroundPrimary text-white "
+      className="relative w-full bg-backgroundPrimary pt-12 text-white "
     >
-      <div className="flex w-full flex-wrap">
+      <div className="flex min-h-screen w-full flex-wrap items-center ">
         {/* LEFT STAR DETAILS */}
         <div className="flex h-auto w-[30%] grow flex-col justify-center ">
           <div className="hidden flex-col px-2 py-12 md:flex lg:px-16 xxl:px-24">
@@ -60,10 +60,10 @@ const AboutMe = () => {
 
         <div className="mx-auto flex w-full max-w-[90vw] grow flex-col items-center gap-14 pb-6 pt-12 md:w-[30%] ">
           <div className="flex flex-col text-center">
-            <h1 className="text-4xl font-bold xs:text-5xl lg:text-7xl">
+            <h1 className="whitespace-nowrap text-4xl font-bold xs:text-5xl lg:text-7xl">
               Sobre mim
             </h1>
-            <h2 className="text-2xl font-semibold text-primary md:text-3xl">
+            <h2 className="whitespace-nowrap text-2xl font-semibold text-primary md:text-3xl">
               se quiser saber mais
             </h2>
           </div>
