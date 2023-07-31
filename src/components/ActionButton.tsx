@@ -5,6 +5,7 @@ type Props = {
   link: string;
 
   externalLink?: boolean;
+  download?: string;
   radius?: boolean;
   rotate?: boolean;
 
@@ -18,6 +19,7 @@ const ActionButton = ({
   radius,
   link,
   externalLink,
+  download,
   rotate,
   onClick,
 }: Props) => {
@@ -41,6 +43,7 @@ const ActionButton = ({
         href={link}
         target={externalLink ? "_blank" : "_self"}
         className={`flex items-center justify-center gap-3 px-7 py-4 text-lg leading-none`}
+        download={download ? download : undefined}
       >
         <span className="text-white">{text}</span>
 

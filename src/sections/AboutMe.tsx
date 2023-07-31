@@ -144,15 +144,14 @@ const AboutMe = () => {
             <h1 className="text-2xl font-semibold">Veja também meu CV!</h1>
 
             <div className="mt-2 flex flex-wrap justify-center gap-6">
-              <div onClick={downloadCV}>
-                <ActionButton
-                  text="Baixar PDF"
-                  icon={download_icon}
-                  radius
-                  color="primary"
-                  link="src/assets/documents/CV_Eduardo.pdf"
-                />
-              </div>
+              <ActionButton
+                text="Baixar PDF"
+                icon={download_icon}
+                radius
+                color="primary"
+                link={CV_Eduardo}
+                download="CV Eduardo Casagrande.pdf"
+              />
 
               <ActionButton
                 text="Ver online"
