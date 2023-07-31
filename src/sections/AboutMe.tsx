@@ -150,7 +150,6 @@ const AboutMe = () => {
                   icon={download_icon}
                   radius
                   color="primary"
-                  externalLink
                   link="src/assets/documents/CV_Eduardo.pdf"
                 />
               </div>
