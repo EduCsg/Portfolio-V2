@@ -6,7 +6,7 @@ import Divider01 from "./dividers/Divider01.svg";
 import Divider02 from "./dividers/Divider02.svg";
 
 import moon from "./illustrations/Moon.svg";
-import star from "./illustrations/star.svg";
+import star from "./illustrations/Star.svg";
 
 import CV_Eduardo from "./documents/CV_Eduardo.pdf";
 
