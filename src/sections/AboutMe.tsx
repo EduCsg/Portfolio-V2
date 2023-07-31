@@ -11,18 +11,6 @@ import ActionButton from "../components/ActionButton";
 const AboutMe = () => {
   const years = new Date().getFullYear() - 2021;
 
-  const downloadCV = () => {
-    fetch(CV_Eduardo).then((response) => {
-      response.blob().then((blob) => {
-        const fileURL = window.URL.createObjectURL(blob);
-        let alink = document.createElement("a");
-        alink.href = fileURL;
-        alink.download = "CV Eduardo Casagrande.pdf";
-        alink.click();
-      });
-    });
-  };
-
   return (
     <section
       id="about"
