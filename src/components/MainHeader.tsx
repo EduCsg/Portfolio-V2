@@ -66,9 +66,8 @@ const MainHeader = () => {
 
       <header className="fixed left-1/2 top-0 z-40 -translate-x-1/2 sm:top-8">
         <nav
-          className={`flex items-center justify-around bg-black bg-opacity-90 px-5 py-3 backdrop-blur-sm transition-all duration-500 sm:flex sm:translate-x-0 sm:rounded-full sm:bg-white sm:backdrop-blur-0           ${
-            menuOpen ? "translate-x-0" : "-translate-x-full"
-          } `}
+          className={`flex items-center justify-around bg-black bg-opacity-90 px-5 py-3 backdrop-blur-sm transition-all duration-500 sm:flex sm:translate-x-0 sm:rounded-full sm:bg-[rgba(255,255,255,.1)] sm:backdrop-blur-md 
+          ${menuOpen ? "translate-x-0" : "-translate-x-full"} `}
         >
           <ul className="flex h-screen w-screen flex-col items-center justify-center gap-4 sm:h-auto sm:w-auto sm:flex-row">
             {sections.map((section) => (
@@ -82,7 +81,7 @@ const MainHeader = () => {
                   ${
                     activeSection === section.toLowerCase()
                       ? "border-primary text-primary"
-                      : "border-transparent text-gray-400"
+                      : "border-transparent text-zinc-100"
                   }`}
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
