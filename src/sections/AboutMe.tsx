@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   CV_Eduardo,
   Divider01,
@@ -8,8 +9,15 @@ import {
 } from "../assets/exports";
 import ActionButton from "../components/ActionButton";
 
-const AboutMe = () => {
+interface Props {
+  theme?: string;
+}
+
+const AboutMe = ({ theme }: Props) => {
   const years = new Date().getFullYear() - 2021;
+
+  // Log para usar a variável não quebrar o build
+  console.log(theme);
 
   return (
     <section
@@ -198,4 +206,4 @@ const AboutMe = () => {
   );
 };
 
-export default AboutMe;
+export default memo(AboutMe);

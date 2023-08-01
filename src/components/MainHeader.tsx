@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Divide as Hamburger } from "hamburger-react";
+import AsideHeader from "./AsideHeader";
 
-const MainHeader = () => {
+interface Props {
+  toggleTheme: () => void;
+}
+
+const MainHeader = ({ toggleTheme }: Props) => {
   const sections = ["home", "about", "skills", "projects", "contact"];
 
   const [activeSection, setActiveSection] = useState(sections[0]);
@@ -51,6 +56,8 @@ const MainHeader = () => {
 
   return (
     <>
+      <AsideHeader toggleTheme={toggleTheme} />
+
       <button
         className="fixed right-5 top-2 z-50 flex h-10 w-10 flex-col items-center justify-center rounded-full bg-opacity-90 sm:hidden"
         onClick={() => toggleMenu()}

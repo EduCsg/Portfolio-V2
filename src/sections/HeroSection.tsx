@@ -1,5 +1,5 @@
 // react
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
 // components
 import DotGrid from "../components/DotGrid";
@@ -10,8 +10,15 @@ import TypeWriter from "../components/TypeWriter";
 // assets
 import { arrow_forward, github_logo } from "../assets/exports";
 
-const HeroSection = () => {
+interface Props {
+  theme?: string;
+}
+
+const HeroSection = ({ theme }: Props) => {
   const [biggerThan1440, setBiggerThan1440] = useState<boolean>(false);
+
+  // Log para usar a variável não quebrar o build
+  console.log(theme);
 
   // On load
   useEffect(() => {
@@ -85,4 +92,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default memo(HeroSection);
