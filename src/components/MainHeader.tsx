@@ -54,9 +54,32 @@ const MainHeader = ({ toggleTheme }: Props) => {
     setMenuOpen(!menuOpen);
   };
 
+  // Change width of scroll slider on scroll
+  window.addEventListener("scroll", () => {
+    const element = document.getElementById("scrollSlider");
+
+    var winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    var height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    var scrolled = ((winScroll / height) * 100).toFixed(0);
+
+    if (element) {
+      element.style.width = scrolled + "%";
+    }
+  });
+
   return (
     <>
       <AsideHeader toggleTheme={toggleTheme} />
+
+      <div
+        className={`fixed top-0 z-40 h-1 bg-primary`}
+        id="scrollSlider"
+      ></div>
 
       <button
         className="fixed right-5 top-2 z-50 flex h-10 w-10 flex-col items-center justify-center rounded-full bg-opacity-90 sm:hidden"
