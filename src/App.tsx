@@ -3,6 +3,7 @@ import HeroSection from "./sections/HeroSection";
 import AboutMe from "./sections/AboutMe";
 import useLocalStorage from "./hooks/useLocalStorage";
 import SkillsSection from "./sections/SkillsSection";
+import ProjectsSection from "./sections/ProjectsSection";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("theme", "dark");
@@ -20,6 +21,8 @@ function App() {
       <AboutMe theme={theme} />
 
       <SkillsSection theme={theme} />
+
+      <ProjectsSection theme={theme} />
     </>
   );
 }
