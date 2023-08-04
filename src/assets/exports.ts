@@ -7,6 +7,8 @@ import Divider02 from "./dividers/Divider02.svg";
 
 import moon from "./illustrations/Moon.svg";
 import star from "./illustrations/Star.svg";
+import fossil from "./illustrations/Fossil.svg";
+import dinosaur from "./illustrations/Dinosaur.svg";
 
 import CV_Eduardo from "./documents/CV_Eduardo.pdf";
 
@@ -18,5 +20,7 @@ export {
   Divider02,
   moon,
   star,
+  fossil,
+  dinosaur,
   CV_Eduardo,
 };

@@ -32,9 +32,10 @@ const AsideHeader = ({ toggleTheme }: Props) => {
 
   const today = weekToday + "/" + monthToday;
 
+  const hours = time.getHours() < 10 ? "0" + time.getHours() : time.getHours();
   const minutes =
     time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
-  const now = time.getHours() + ":" + minutes;
+  const now = hours + ":" + minutes;
 
   return (
     // <div className="fixed left-3 top-3 z-50 flex items-center gap-4 rounded-full bg-[rgba(255,255,255,.1)] px-4 py-2 text-white backdrop-blur-md transition-all duration-500 sm:right-5 sm:top-8 sm:px-7">

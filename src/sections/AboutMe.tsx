@@ -195,13 +195,13 @@ const AboutMe = ({ theme }: Props) => {
             />
           </div>
         </div>
-      </div>
 
-      <img
-        className="w-screen"
-        src={Divider01}
-        alt="Imagem divisória entre a seção de sobre mim e a seção de habilidades técnicas"
-      />
+        <img
+          className="w-screen"
+          src={Divider01}
+          alt="Imagem divisória entre a seção de sobre mim e a seção de habilidades técnicas"
+        />
+      </div>
     </section>
   );
 };
