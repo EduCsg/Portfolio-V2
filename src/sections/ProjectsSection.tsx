@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Divider02 } from "../assets/exports";
 import ProjectsList from "../constants/ProjectsList";
 
@@ -6,7 +7,7 @@ type Props = {
 };
 
 const ProjectsSection = ({ theme }: Props) => {
-  // nao quebrar o build
+  // p nao quebrar o build
   theme = theme;
 
   const technologies = [
@@ -19,91 +20,122 @@ const ProjectsSection = ({ theme }: Props) => {
     "TailwindCSS",
   ];
 
+  const [filteredProjectsList, setFilteredProjectsList] =
+    useState(ProjectsList);
+  const [activeTechnology, setActiveTechnology] = useState<string>("");
+
+  useEffect(() => {
+    if (activeTechnology === "Todas") {
+      setFilteredProjectsList(ProjectsList);
+    } else if (activeTechnology === "HTML + CSS") {
+      setFilteredProjectsList(
+        ProjectsList.filter(
+          (project) =>
+            project.technologies.includes("HTML") &&
+            project.technologies.includes("CSS"),
+        ),
+      );
+    } else {
+      setFilteredProjectsList(
+        ProjectsList.filter((project) =>
+          project.technologies.includes(activeTechnology),
+        ),
+      );
+    }
+  }, [activeTechnology]);
+
   return (
     <section>
       <img className="w-screen" src={Divider02} alt="" />
 
       <main
         id="projects"
-        className="flex min-h-[90vh] flex-col gap-28 bg-backgroundTertiary py-28"
+        className="flex min-h-[90vh] flex-col items-center gap-20 bg-backgroundTertiary py-28"
       >
-        <div className="flex justify-center gap-3">
-          {technologies.map((technology, index) => (
-            <button
-              key={index}
-              className="w-44 rounded-md bg-backgroundSecondary py-2 text-xl font-bold text-white hover:bg-primary"
-            >
-              {technology}
-            </button>
-          ))}
+        <div className="flex flex-col items-center gap-8">
+          <h1 className="text-center text-3xl font-bold text-white">
+            Filtre por tecnologia!
+          </h1>
+
+          <div className="flex justify-center gap-3">
+            {technologies.map((technology, index) => (
+              <button
+                key={index}
+                className={`w-44 rounded-md py-2 text-xl font-medium text-white hover:bg-secondary
+                ${
+                  activeTechnology === technology
+                    ? "bg-primary"
+                    : "bg-backgroundSecondary"
+                }`}
+                onClick={() => setActiveTechnology(technology)}
+              >
+                {technology}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-10">
-          {ProjectsList.map((project, index) => (
-            <div
-              key={index}
-              className="flex max-w-xs flex-col items-center rounded-xl bg-backgroundPrimary p-4"
-            >
-              <img
-                src={project.image}
-                className="h-36 w-36 object-cover"
-                alt={`Imagem do projeto ${project.title}`}
-              />
+        {/* Cards */}
+        <div className="flex max-w-[80vw] flex-wrap items-center justify-center gap-5">
+          {filteredProjectsList.length === 0 && (
+            <h1 className="text-4xl font-bold text-white">
+              Nenhum projeto encontrado!
+            </h1>
+          )}
 
-              <h1 className="text-center text-4xl font-bold text-white">
-                {project.title}
-              </h1>
+          {filteredProjectsList &&
+            filteredProjectsList.map((project, index) => (
+              <div
+                key={index}
+                className="flex max-w-xs flex-col items-center gap-4 rounded-xl bg-backgroundPrimary p-4"
+              >
+                <img
+                  src={project.image}
+                  className="h-36 w-full object-cover"
+                  alt={`Imagem do projeto ${project.title}`}
+                />
 
-              <p className="max-w-[80%] text-center text-white">
-                {project.description}
-              </p>
+                <div className="flex flex-col items-center gap-3 text-center">
+                  <h1 className="text-center text-4xl font-bold text-white">
+                    {project.title}
+                  </h1>
 
-              <div className="flex w-full justify-between pb-2 pt-4">
-                <div className="flex gap-2">
-                  {project.technologies.map((technology, index) => (
-                    <span
-                      key={index}
-                      className="rounded-md bg-backgroundSecondary px-2 py-1 text-sm font-bold text-white"
-                    >
-                      A
-                    </span>
-                  ))}
+                  <p className="max-w-[80%] text-center text-white">
+                    {project.description}
+                  </p>
                 </div>
 
-                <div className="flex gap-2">
-                  {project.links.map((link, index) => (
-                    <a
-                      key={index}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-md bg-backgroundSecondary px-2 py-1 text-sm font-bold text-white"
-                    >
-                      {link.icon}
-                    </a>
-                  ))}
+                {/* CardBottom */}
+                <div className="flex w-full justify-between">
+                  {/* Technologies */}
+                  <div className="flex gap-2">
+                    {project.technologiesIcons.map((technology, index) => (
+                      <span
+                        key={index}
+                        className="cursor-pointer rounded-md bg-backgroundSecondary px-2 py-1  text-white transition-all duration-200 hover:bg-backgroundTertiary"
+                      >
+                        {technology}
+                      </span>
+                    ))}
+                  </div>
 
-                  {/* <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-md bg-backgroundSecondary px-2 py-1 text-sm font-bold text-white"
-                  >
-                    G
-                  </a>
-
-                  <a
-                    href={project.links.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-md bg-backgroundSecondary px-2 py-1 text-sm font-bold text-white"
-                  >
-                    S
-                  </a> */}
+                  {/* Links */}
+                  <div className="flex gap-2">
+                    {project.links.map((link, index) => (
+                      <a
+                        key={index}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-md bg-backgroundSecondary px-2 py-1 text-white transition-all duration-200 hover:bg-primary"
+                      >
+                        {link.icon}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </main>
     </section>

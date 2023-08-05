@@ -4,10 +4,10 @@ interface IProject {
   image: string;
 
   technologies: string[];
+  technologiesIcons: any[];
 
-  // List of links with ICON and URL
   links: {
-    icon: string;
+    icon: any;
     url: string;
   }[];
 }
