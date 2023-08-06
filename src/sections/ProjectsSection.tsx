@@ -15,14 +15,15 @@ const ProjectsSection = ({ theme }: Props) => {
     "HTML + CSS",
     "Javascript",
     "Typescript",
-    "React",
+    "ReactJS",
     "VueJS",
     "TailwindCSS",
+    "Java",
   ];
 
   const [filteredProjectsList, setFilteredProjectsList] =
     useState(ProjectsList);
-  const [activeTechnology, setActiveTechnology] = useState<string>("");
+  const [activeTechnology, setActiveTechnology] = useState<string>("Todas");
 
   useEffect(() => {
     if (activeTechnology === "Todas") {
@@ -57,14 +58,14 @@ const ProjectsSection = ({ theme }: Props) => {
             Filtre por tecnologia!
           </h1>
 
-          <div className="flex justify-center gap-3">
+          <div className="flex max-w-[90vw] flex-wrap justify-center gap-3">
             {technologies.map((technology, index) => (
               <button
                 key={index}
-                className={`w-44 rounded-md py-2 text-xl font-medium text-white hover:bg-secondary
+                className={`w-44 rounded-md py-2 text-xl font-medium text-white transition-all hover:bg-[#794ae4cc]
                 ${
                   activeTechnology === technology
-                    ? "bg-primary"
+                    ? "!bg-primary"
                     : "bg-backgroundSecondary"
                 }`}
                 onClick={() => setActiveTechnology(technology)}
@@ -76,7 +77,7 @@ const ProjectsSection = ({ theme }: Props) => {
         </div>
 
         {/* Cards */}
-        <div className="flex max-w-[80vw] flex-wrap items-center justify-center gap-5">
+        <div className="flex max-w-[95vw] flex-wrap items-center justify-center gap-5 md:max-w-[90vw] xxl:max-w-[80vw]">
           {filteredProjectsList.length === 0 && (
             <h1 className="text-4xl font-bold text-white">
               Nenhum projeto encontrado!
@@ -87,26 +88,28 @@ const ProjectsSection = ({ theme }: Props) => {
             filteredProjectsList.map((project, index) => (
               <div
                 key={index}
-                className="flex max-w-xs flex-col items-center gap-4 rounded-xl bg-backgroundPrimary p-4"
+                className="md:min-w-auto flex min-w-[250px] max-w-xs flex-col items-center justify-between gap-6 rounded-xl bg-backgroundPrimary p-4 ml:min-h-[450px] ml:w-auto ml:gap-0"
               >
-                <img
-                  src={project.image}
-                  className="h-36 w-full object-cover"
-                  alt={`Imagem do projeto ${project.title}`}
-                />
+                <div className="flex flex-col gap-4">
+                  <img
+                    src={project.image}
+                    className="hidden h-36 w-[290px] object-cover md:block"
+                    alt={`Imagem do projeto ${project.title}`}
+                  />
 
-                <div className="flex flex-col items-center gap-3 text-center">
-                  <h1 className="text-center text-4xl font-bold text-white">
-                    {project.title}
-                  </h1>
+                  <div className="flex flex-col items-center gap-3">
+                    <h1 className="text-center text-2xl font-bold text-white">
+                      {project.title}
+                    </h1>
 
-                  <p className="max-w-[80%] text-center text-white">
-                    {project.description}
-                  </p>
+                    <p className="hidden max-w-[90%] text-white ml:block">
+                      {project.description}
+                    </p>
+                  </div>
                 </div>
 
                 {/* CardBottom */}
-                <div className="flex w-full justify-between">
+                <div className="flex w-full flex-col gap-3 md:flex-row md:justify-between md:gap-0">
                   {/* Technologies */}
                   <div className="flex gap-2">
                     {project.technologiesIcons.map((technology, index) => (
